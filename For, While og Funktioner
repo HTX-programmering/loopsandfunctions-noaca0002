@@ -1,0 +1,161 @@
+Opgave 6.4
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "Hej med dig!";
+for (int i = 0; i < 5; i++) {
+    System.out.print(str.charAt(i));
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "Hej med dig!";
+int i = 0;
+while (i < 5) {
+    System.out.print(str.charAt(i));
+    i++;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 6.5
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "Dette er en sætning, som indeholder mange e’er. Men hvor mange er der?";
+int count = 0;
+for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == 'e') {
+        System.out.print(str.charAt(i));
+        count++;
+    }
+}
+System.out.println("\nAntal e'er fundet: " + count);
+System.out.println("Længden af sætningen: " + str.length());
+-----------------------------------------------------------------------------------------------------------------------------------------
+String str = "Dette er en sætning, som indeholder mange e’er. Men hvor mange er der?";
+int count = 0;
+int i = 0;
+while (i < str.length()) {
+    if (str.charAt(i) == 'e') {
+        System.out.print(str.charAt(i));
+        count++;
+    }
+    i++;
+}
+System.out.println("\nAntal e'er fundet: " + count);
+System.out.println("Længden af sætningen: " + str.length());
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 6.6
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er en flok dyr.";
+str = str.toLowerCase(); // Gør alt til små bogstaver for nem sammenligning
+int i = 0;
+boolean found = false;
+while (!found && i < str.length()) {
+    if (str.charAt(i) == 'z') {
+        System.out.println("Fundet på index: " + i);
+        found = true;
+    }
+    i++;
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 6.7
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er et flokdyr.";
+int count = 0;
+for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == 'z' || str.charAt(i) == 'Z') {
+        count++;
+    }
+}
+System.out.println("Antal z'er: " + count);
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 6.8
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er en flok dyr.";
+str = str.toLowerCase(); // Gør alt til små bogstaver for nem sammenligning
+boolean found = false;
+for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == 'z') {
+        System.out.println("Fundet på index: " + i);
+        found = true;
+        break; // Stop løkken når 'z' er fundet
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+String str = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er et flokdyr.";
+int count = 0;
+int i = 0;
+while (i < str.length()) {
+    if (str.charAt(i) == 'z' || str.charAt(i) == 'Z') {
+        count++;
+    }
+    i++;
+}
+System.out.println("Antal z'er: " + count);
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 7.1
+--------------------------------------------------------------------------------------------------------------------------------------------
+void setup() {
+    size(800, 800);
+    tegnBlåFirkant();
+}
+
+
+void tegnBlåFirkant() {
+    fill(0, 0, 255); // Blå farve
+    rect(width / 2 - 50, height / 2 - 50, 100, 100); // Placerer firkanten midt i canvas
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+void setup() {
+    size(800, 800);
+    tegnRødCirkel();
+}
+
+void tegnRødCirkel() {
+    fill(255, 0, 0); // Rød farve
+    ellipse(width / 2, height / 2, 100, 100); // Cirklen placeres midt i canvas
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 7.2
+--------------------------------------------------------------------------------------------------------------------------------------------
+void setup() {
+    size(800, 800);
+    tegnFlereCirkler();
+}
+
+void tegnFlereCirkler() {
+    fill(255, 0, 0); // Rød farve
+    for (int i = 0; i < 8; i++) {
+        ellipse(100 + i * 50, height / 2, 40, 40); // Flytter cirklen langs x-aksen
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Opgave 7.3
+--------------------------------------------------------------------------------------------------------------------------------------------
+void setup() {
+    size(800, 800);
+    tegnBlomst();
+}
+
+void tegnBlomst() {
+    pushMatrix();
+    translate(width / 2, height / 2); // Flytter til midten af canvas
+
+    // Tegn firkanten i midten
+    fill(0, 0, 255); // Blå farve
+    rectMode(CENTER);
+    rect(0, 0, 100, 100); // Størrelse på firkanten
+
+    // Tegn kronbladene
+    fill(255, 0, 0); // Rød farve
+    float radius = 75; // Radius for cirklernes placering
+    float circleSize = 70; // Størrelse på cirklerne
+
+    for (int i = 0; i < 8; i++) {
+        pushMatrix();
+        rotate(TWO_PI / 8 * i); // Roterer 45 grader for hvert kronblad
+        translate(0, radius); // Flytter cirklen ud til kanten af firkanten
+        ellipse(0, 0, circleSize, circleSize); // Tegner et kronblad
+        popMatrix();
+    }
+
+    popMatrix();
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
